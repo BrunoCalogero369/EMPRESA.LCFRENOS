@@ -1,0 +1,133 @@
+/* Resetear los márgenes y el padding en todo el documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aplicar un fondo azul al cuerpo del documento */
+body {
+    background-color: #13294B; /* Un tono azul más oscuro */
+    font-family: Arial, sans-serif;
+    color: white; /* Texto en blanco para resaltar en el fondo azul */
+}
+
+/* Estilo para el encabezado */
+header {
+    background-color: #000066; /* Fondo azul oscuro */
+    text-align: center;
+    padding: 2em 0; /* Aumentamos el padding para dar más espacio al encabezado */
+    color: white; /* Letras blancas */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Efecto sombra */
+}
+
+/* Estilo para el nombre de la empresa en el encabezado */
+header .logo h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 69px;
+    text-shadow: 2px 2px 4px #116699; /* Efecto sombra en azul oscuro */
+    color: white; /* Color azul claro para el texto */
+}
+
+/* Estilo para la descripción en el encabezado */
+header .logo p {
+    font-size: 26px; /* Tamaño de fuente más grande para la descripción */
+    margin-top: 10px; /* Espacio superior */
+}
+
+/* Estilo para la navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #220; /* Color de fondo oscuro para la navegación */
+    padding: 1em 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* Modificaciones para la sección de productos */
+#productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2em;
+    overflow: hidden; /* Oculta los productos adicionales */
+    position: relative; /* Para alinear el contenido de navegación */
+}
+
+.producto {
+    background-color: #444;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em;
+    text-align: center;
+    flex-basis: calc(33.33% - 2em);
+    max-width: calc(33.33% - 2em);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.3s;
+    transform-origin: center center;
+    cursor: pointer;
+}
+
+.producto.visible {
+    opacity: 1;
+    
+}
+
+.producto.hover {
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Estilos para la sección de navegación */
+.navegacion {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.navegacion button {
+    background-color: #000066;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.navegacion button:hover {
+    background-color: #333;
+}
+
+
+/* Estilo para el pie de página */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #222; /* Color de fondo oscuro para el pie de página */
+}
+
+/* Estilo para los párrafos dentro del pie de página */
+footer p {
+    margin-bottom: 10px;
+}
+
+/* Cambiar el color de los enlaces en el pie de página */
+footer a {
+    color: #66C2D3; /* Color azul claro para los enlaces en el pie de página */
+}

@@ -1,27 +1,21 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const productos = document.querySelectorAll(".producto");
-    let currentIndex = 0;
+// Espera a que se cargue completamente el documento HTML
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtén todos los elementos con la clase "producto"
+    const productos = document.querySelectorAll('.producto');
 
-    // Función para mostrar los mosaicos de manera secuencial
-    function mostrarProductos() {
-        if (currentIndex < productos.length) {
-            productos[currentIndex].classList.add("visible");
-            currentIndex++;
-            setTimeout(mostrarProductos, 200); // Cambia el tiempo para ajustar la velocidad
-        }
-    }
-
-    // Iniciar la animación al cargar la página
-    mostrarProductos();
-
-    // Agregar eventos de mouseover y mouseout a los mosaicos
+    // Agrega un evento de mouseover a cada producto
     productos.forEach(producto => {
-        producto.addEventListener("mouseover", function() {
-            this.classList.add("hover");
+        producto.addEventListener('mouseover', function () {
+            // Aplica la transformación y la opacidad en el hover
+            this.style.transform = 'scale(1.1)';
+            this.style.opacity = '1';
         });
 
-        producto.addEventListener("mouseout", function() {
-            this.classList.remove("hover");
+        // Agrega un evento de mouseout a cada producto
+        producto.addEventListener('mouseout', function () {
+            // Restaura la transformación y la opacidad al estado original
+            this.style.transform = 'scale(1)';
+            this.style.opacity = '0.9';
         });
     });
 });

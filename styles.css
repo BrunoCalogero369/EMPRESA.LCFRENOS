@@ -4,19 +4,48 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Aplicar un fondo azul al cuerpo del documento */
 body {
-    background-color: #007BFF; /* Mismo color que el texto del h1 */
+    background-image: url("https://1.bp.blogspot.com/-th2V7Os2H0E/X5TG2qsoUVI/AAAAAAAAU6w/tsKIdEpahu8Ziz9OHkxznuV3k8WD1_qWQCLcBGAsYHQ/w1200-h630-p-k-no-nu/122412845_4589628324412168_6700104089761755001_o.jpg");
     font-family: Arial, sans-serif;
-    color: white; /* Texto en blanco para resaltar en el fondo azul */
+    color: white;
 }
 
 /* Estilo para el encabezado */
+header,
+main,
+nav {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 header {
     background: url("Fotosdeproductos/logotipocamion.jpg") center/cover no-repeat;
     text-align: center;
-    padding: 2em 0; /* Aumentamos el padding para dar más espacio al encabezado */
+    padding: 2em 0;
     position: relative;
+    animation: aparecer 0.5s ease 0.5s forwards;
+}
+
+main {
+    animation: aparecer 0.5s ease 1.5s forwards;
+}
+
+nav {
+    animation: aparecer 0.5s ease 1s forwards;
+}
+
+/* Define la animación */
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Agregar opacidad al fondo */
@@ -27,30 +56,34 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Ajusta la opacidad y el color según sea necesario */
-    z-index: -1; /* Coloca el fondo detrás del contenido */
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
 /* Estilo para el nombre de la empresa en el encabezado */
 header .logo h1 {
     margin: 20px 0;
     padding: 0;
-    font-size: 59px;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9); /* Sombreado oscuro para un efecto 3D */
-    color: #007BFF; /* Cambia el color del texto a un azul llamativo */
-    margin-bottom: 0.5em; /* Agregar margen inferior para separar el título del párrafo */
+    font-size: 69px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    color: #007BFF;
+    margin-bottom: 0.5em;
 }
 
-
-
 /* Estilo para la navegación */
+nav {
+    background-color: #007BFF;
+    padding: 15px 0;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    background-color: #220; /* Color de fondo oscuro para la navegación */
-    padding: 1em 0;
+    background-color: #007BFF;
     margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 nav li {
@@ -58,112 +91,152 @@ nav li {
 }
 
 nav a {
+    color: white;
     text-decoration: none;
+    font-size: 21px;
+    margin: 0 20px;
+    transition: font-size 0.2s;
+}
+
+nav a:hover {
+    font-size: 23px;
+    color: #66C2D3;
+    transform: scale(1.1);
+}
+
+nav a[href="#footer"] {
     color: white;
 }
-nav a[href="#footer"] {
-    color: white; /* Cambia el color del enlace de Contacto */
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    header .logo h1 {
+        font-size: 60px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .producto {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .productos-container {
+        margin-top: 15px;
+    }
+
+    footer {
+        padding: 10px;
+        margin-top: 15px;
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
 }
 
-/* Modificaciones para la sección de productos */
-#productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2em;
+/* Estilos para las secciones de productos */
+.productos-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    border: 3px solid blue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
     position: relative;
-    background-color: rgba(0, 123, 255, 0.3); /* Para alinear el contenido de navegación */
 }
 
-.producto {
-    background-color: #444;
-    border-radius: 8px;
-    padding: 1em;
-    margin: 1em;
+.descripcion {
+    background: none;
+    padding: 0;
     text-align: center;
-    flex-basis: calc(50% - 2em); /* Mostrar 2 productos por fila en pantallas grandes */
-    max-width: calc(50% - 2em);
-    margin: 1em;
-    background-color: rgba(40, 40, 40, 0.8); /* Fondo gris oscuro con transparencia */
+    color: white;
 }
 
-.producto.visible {
+/* Estilos para los productos */
+.producto {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 255, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    min-width: 300px;
+    max-width: 100%;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column; /* Cambio importante */
+    justify-content: space-between; /* Cambio importante */
+    height: 100%; /* Cambio importante */
+}
+.producto img {
+    width: 100%; /* Cambio importante */
+    max-height: 300px; /* Cambio importante: Ajusta la altura máxima según tus preferencias */
+    border-radius: 5px;
+}
+
+.producto p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    flex-grow: 1; /* Cambio importante: Permite que la descripción ocupe el espacio restante */
+}
+
+
+.producto:hover {
+    transform: scale(1.1);
     opacity: 1;
-    
 }
 
-.producto.hover {
-    transform: scale(1.05);
-    z-index: 1;
+/* Define la animación para la entrada de productos */
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .producto img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 5px;
 }
-@media (min-width: 768px) {
-    .producto {
-        flex-basis: calc(33.33% - 20px); /* Mostrar 3 productos por fila en pantallas más grandes */
-        max-width: calc(33.33% - 20px);
-    }
+
 .producto p {
-        font-size: 14px;
-        margin-top: 10px; /* Cambio: Usar margin-top en lugar de margin top */
-    }
-    /* Estilo para el pie de página en pantallas pequeñas */
-    footer {
-        margin-top: 1em; /* Puedes ajustar el margen superior según lo necesites */
-    }
-
-    /* Estilo para los párrafos dentro del pie de página en pantallas pequeñas */
-    footer p {
-        margin: 5px 0; /* Ajustar los márgenes superior e inferior según lo necesites */
-    }
-}
-
-/* Estilos para la sección de navegación */
-.navegacion {
-    text-align: center;
-    margin-top: 1em;
-}
-
-.navegacion button {
-    background-color: #000066;
     color: white;
-    border: none;
-    padding: 0.5em 1em;
-    font-size: 18px;
-    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.navegacion button:hover {
-    background-color: #333;
-}
-
-
-/* Estilo para el subheader en el footer */
-.subheader {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 1em 0;
-}
-/* Estilo para el pie de página */
+/* Estilos para el pie de página */
 footer {
     text-align: center;
-    padding: 1em;
-    background-color: #222; /* Color de fondo oscuro para el pie de página */
-    margin-top: 2em; /* Agregar un margen superior para separar el footer del contenido */
-    clear: both; /* Limpiar cualquier posible solapamiento de floats */
+    padding: 10px;
+    background-color: #222;
+    margin-top: 15px;
+    clear: both;
 }
+footer .subheader p {
+    color: #007BFF; /* Cambiar el color a azul */
+    font-size: 18px; /* Ajustar el tamaño del texto */
+}
+
 
 /* Estilo para los párrafos dentro del pie de página */
 footer p {
-    margin: 10px 0; /* Agregar margen superior e inferior para separar los párrafos */
+    margin: 5px 0;
 }
 
 /* Cambiar el color de los enlaces en el pie de página */
 footer a {
-    color: #66C2D3; /* Color azul claro para los enlaces en el pie de página */
+    color: #66C2D3;
 }
+
